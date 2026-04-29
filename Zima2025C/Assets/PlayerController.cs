@@ -1,4 +1,5 @@
 ﻿
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,16 +16,16 @@ public class PlayerController : MonoBehaviour
     public Vector3 distance;
 
     public float gameTime;
-    public float hp;
+    public float hp=100;
     public int coins;
+
+    public Action OnHPChanged;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         playerTransform = GetComponent<Transform>();
         cameraTransform = GameObject.FindWithTag("MainCamera").GetComponent<Transform>();
-
-        hp = 100;
     }
 
     void Update ()
@@ -71,6 +72,7 @@ public class PlayerController : MonoBehaviour
     public void AddDamage(float amount)
     {
         hp -= amount; //hp = hp - amount
+        OnHPChanged?.Invoke();
         if (hp <= 0)
         {
             SceneManager.LoadScene("Demo");
