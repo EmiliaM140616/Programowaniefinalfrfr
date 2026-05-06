@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 distance;
 
     public float gameTime;
-    public float hp=100;
+    public float hp = 100.0f;
     public int coins;
 
     public Action OnHPChanged;
@@ -69,13 +69,16 @@ public class PlayerController : MonoBehaviour
             coins++;
         }
     }
+
     public void AddDamage(float amount)
     {
-        hp -= amount; //hp = hp - amount
+        hp -= amount;
+        // if (OnHPChanged != null)
         OnHPChanged?.Invoke();
         if (hp <= 0)
         {
             SceneManager.LoadScene("Demo");
         }
     }
+
 }

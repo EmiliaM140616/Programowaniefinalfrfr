@@ -3,21 +3,22 @@ using UnityEngine.UI;
 
 public class TopBarHandler : MonoBehaviour
 {
-    public Gradient HPColorGradient;
-    public Slider HPSlider;
-    public Image FillImage;
+
     private PlayerController _playerController;
- 
+    public Slider HPSlider;
+    public Gradient HPColorGradient;
+    public Image FillImage;
     void Start()
     {
         _playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-        _playerController.OnHPChanged += UpdateHPBar;
-        UpdateHPBar();
+        _playerController.OnHPChanged += UpdateHPSlider;
+        UpdateHPSlider();
     }
 
-    public void UpdateHPBar()
+
+    void UpdateHPSlider()
     {
-        HPSlider.value = _playerController.hp / 100.0f;
-        FillImage.color = HPColorGradient.Evaluate(_playerController.hp / 100.0f);
+        HPSlider.value = _playerController.hp / 100;
+        FillImage.color = HPColorGradient.Evaluate(_playerController.hp / 100);
     }
 }
