@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 2211796807304118886}
   - component: {fileID: 2199666938802768286}
   - component: {fileID: 4630955452866427143}
-  - component: {fileID: 4769123799304055963}
   m_Layer: 5
   m_Name: MinimapContainer
   m_TagString: Untagged
@@ -212,28 +211,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Mask
   m_ShowMaskGraphic: 1
---- !u!95 &4769123799304055963
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1292836322328962894}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 286f42ed4f9ab234a806ed289bd76540, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 2
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2115060548679810944
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +312,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3005162843760245873}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -344,7 +321,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000022888184, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5246036106181704919
@@ -429,7 +406,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7596308453617685845}
+      - m_Target: {fileID: 4557553808284627585}
         m_TargetAssemblyTypeName: BallMinimapController, Assembly-CSharp
         m_MethodName: OnResizeButtonClick
         m_Mode: 1
@@ -488,7 +465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4773192066446775874}
   - component: {fileID: 532736592855410316}
-  - component: {fileID: 7596308453617685845}
+  - component: {fileID: 4557553808284627585}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -528,7 +505,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 286f42ed4f9ab234a806ed289bd76540, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -538,7 +515,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7596308453617685845
+--- !u!114 &4557553808284627585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -547,7 +524,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3829425679417447384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac976000f42079741895435c391c8cd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 99d76b47dd069074884728ca62952c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallMinimapController
   animatorRef: {fileID: 532736592855410316}
@@ -789,7 +766,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &6714235652157296005
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -905,6 +882,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7047523972149704955}
     m_Modifications:
+    - target: {fileID: 1772479198639510043, guid: 9ced0f2f646b27d46b209f2867db4c3a, type: 3}
+      propertyPath: animatorRef
+      value: 
+      objectReference: {fileID: 532736592855410316}
     - target: {fileID: 3711282825407719101, guid: 9ced0f2f646b27d46b209f2867db4c3a, type: 3}
       propertyPath: m_Pivot.x
       value: 1
@@ -985,16 +966,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5652457395484931035, guid: 9ced0f2f646b27d46b209f2867db4c3a, type: 3}
-      propertyPath: animatorRef
-      value: 
-      objectReference: {fileID: 532736592855410316}
     - target: {fileID: 6346579564800252283, guid: 9ced0f2f646b27d46b209f2867db4c3a, type: 3}
       propertyPath: m_Name
       value: Minimap
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 5652457395484931035, guid: 9ced0f2f646b27d46b209f2867db4c3a, type: 3}
+    - {fileID: 0}
+    - {fileID: 1772479198639510043, guid: 9ced0f2f646b27d46b209f2867db4c3a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

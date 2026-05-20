@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3711282825407719101}
   - component: {fileID: 4691530429831713928}
   - component: {fileID: 699512943876894293}
-  - component: {fileID: 5652457395484931035}
+  - component: {fileID: 1772479198639510043}
   m_Layer: 5
   m_Name: Minimap
   m_TagString: Untagged
@@ -73,7 +73,7 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &5652457395484931035
+--- !u!114 &1772479198639510043
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6346579564800252283}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac976000f42079741895435c391c8cd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 99d76b47dd069074884728ca62952c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BallMinimapController
   animatorRef: {fileID: 0}
