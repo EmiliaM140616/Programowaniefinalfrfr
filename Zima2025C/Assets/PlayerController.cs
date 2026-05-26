@@ -1,4 +1,5 @@
 ﻿
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,8 +16,13 @@ public class PlayerController : MonoBehaviour
     public Vector3 distance;
 
     public float gameTime;
-    public float hp;
+    public float hp = 100.0f;
     public int coins;
+
+    public float baseSpeed;
+    public float speedBoostTimer;
+
+    public Action OnHPChanged;
 
     private void Start()
     {
@@ -24,12 +30,22 @@ public class PlayerController : MonoBehaviour
         playerTransform = GetComponent<Transform>();
         cameraTransform = GameObject.FindWithTag("MainCamera").GetComponent<Transform>();
 
-        hp = 100;
+        rb.maxAngularVelocity = baseSpeed;
+        speed = baseSpeed;
     }
 
     void Update ()
     {
         gameTime = Time.timeSinceLevelLoad;
+
+        speed = baseSpeed;
+        rb.maxAngularVelocity = 10;
+        speedBoostTimer -= Time.deltaTime;
+        if (speedBoostTimer < 0)
+        {
+            speed *= 3;
+            rb.maxAngularVelocity = 15;
+        }
 
         rb.AddTorque(speed * Time.deltaTime * Input.GetAxis("Vertical") * cameraTransform.right);
         rb.AddTorque(speed * Time.deltaTime * Input.GetAxis("Horizontal") * Vector3.Cross(Vector3.up, cameraTransform.right));
@@ -71,10 +87,17 @@ public class PlayerController : MonoBehaviour
 
     public void AddDamage(float amount)
     {
-        hp -= amount; // hp = hp - amount;
+        hp -= amount;
+        // if (OnHPChanged != null)
+        OnHPChanged?.Invoke();
         if (hp <= 0)
         {
             SceneManager.LoadScene("Demo");
         }
+    }
+
+    public void ActivateSpeedBoost()
+    {
+        speedBoostTimer = 5f;
     }
 }
