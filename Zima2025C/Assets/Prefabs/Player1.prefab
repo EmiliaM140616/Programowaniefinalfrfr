@@ -157,7 +157,9 @@ MonoBehaviour:
   dead: 0
   deathPrefab: {fileID: 4397334591890123670, guid: b0159ffb3464ec5478e3f6e6ce51d561, type: 3}
   playerMovement: {fileID: 8964127575773664072}
+  playerShooting: {fileID: 2082211601497490368}
   cc: {fileID: 3381845806108309825}
+  animator: {fileID: 840663927388525224}
 --- !u!95 &840663927388525224
 Animator:
   serializedVersion: 7
