@@ -16,8 +16,12 @@ public class MyPlayerShooting : MonoBehaviour
 
     private bool usingWeapon = false;
 
+    public float ammo;
+    private float ammoDecrease = 15;
+
     private void Start()
     {
+        ammo = 100;
         playerHealth.onDeath += DetachWeapon;
 
         AttachWeapon(usingWeapon ? socketRightHand : socketSpine);
@@ -44,9 +48,15 @@ public class MyPlayerShooting : MonoBehaviour
         if (usingWeapon == false)
             return;
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1") & ammo > 0)
         {
             ToggleFiring(true);
+            ammo -= ammoDecrease * Time.deltaTime;
+            if (ammo <= 0)
+            {
+                ammo = 0;
+                ToggleFiring(false);
+            }
         }
 
         if (Input.GetButtonUp("Fire1"))
