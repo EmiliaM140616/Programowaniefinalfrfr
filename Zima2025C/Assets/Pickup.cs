@@ -17,7 +17,7 @@ public class Pickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Instantiate(pickupEffect, transform.position, transform.rotation);
-            playerShooting.ammo += 100;
+            playerShooting.currentAmmo += 50;
             Destroy(gameObject);
         }
     }

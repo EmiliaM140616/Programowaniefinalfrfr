@@ -5,16 +5,18 @@ using TMPro;
 public class AmmoCounter : MonoBehaviour
 {
     public TMP_Text AmmoValueText;
-    private MyPlayerShooting _myplayershooting;
+    public MyPlayerShooting playerShooting;
 
     void Start()
     {
-        _myplayershooting = GameObject.FindGameObjectWithTag("Player").GetComponent<MyPlayerShooting>();
+
     }
 
-    void UpdateAmmoValueText()
+    void Update()
     {
-        if (AmmoValueText != null)
-        AmmoValueText.text = $"{_myplayershooting.ammo:0}";
+        if (playerShooting != null && AmmoValueText != null)
+        {
+            AmmoValueText.text = "Ammo: " + playerShooting.currentAmmo.ToString();
+        }
     }
 }
