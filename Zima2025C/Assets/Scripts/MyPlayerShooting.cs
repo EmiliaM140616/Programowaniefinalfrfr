@@ -35,6 +35,10 @@ public class MyPlayerShooting : MonoBehaviour
 
     void Update()
     {
+        if(currentAmmo > maxAmmo)
+        {
+            currentAmmo = 200;
+        }
         if (Input.GetButtonDown("Fire2"))
         {
             usingWeapon = !usingWeapon;
@@ -50,15 +54,9 @@ public class MyPlayerShooting : MonoBehaviour
         if (usingWeapon == false)
             return;
 
-        if (Input.GetButton("Fire1") & currentAmmo > 0)
+        if (Input.GetButtonDown("Fire1") & currentAmmo > 0)
         {
             ToggleFiring(true);
-            currentAmmo -= ammoDecrease * Time.deltaTime;
-            if (currentAmmo <= 0)
-            {
-                currentAmmo = 0;
-                ToggleFiring(false);
-            }
         }
 
         if (Input.GetButtonUp("Fire1"))
@@ -71,6 +69,14 @@ public class MyPlayerShooting : MonoBehaviour
     {
         if (flamethrower.isPlaying)
         {
+            currentAmmo -= ammoDecrease * Time.deltaTime;
+
+            if (currentAmmo <= 0)
+            {
+                currentAmmo = 0;
+                ToggleFiring(false);
+            }
+
             if (Physics.SphereCast(bulletSpawnPoint.position, 0.25f, bulletSpawnPoint.forward, out var hitInfo, 4.0f))
             {
                 if (hitInfo.collider.CompareTag("Enemy"))
